@@ -1,8 +1,8 @@
 name: My First GitHub Actions
 #test commit
 on:
-  schedule:
-    - cron: '*/5 * * * *' # Runs at 10:00 UTC on April 24th every year
+    pull_request:
+      types: [opened] # Runs at 10:00 UTC on April 24th every year
 
 jobs:
   build:
