@@ -27,11 +27,10 @@ jobs:
     - name: Run tests
       run: |
         cd src
-        python -m pytest 
-# addition.py
+        python -m pytest addition.py
 
     - name: Send mail
-      if: always()
+      if: success()
       uses: dawidd6/action-send-mail@v2
       with:
         # mail server settings
@@ -45,6 +44,6 @@ jobs:
         # email body as text
         body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
         # comma-separated string, send email to
-        to: vaishnavi.jarange2210@gmail.com
+        to: vaishnavijarange@gmail.com
         # from email name
         from: John Doe
