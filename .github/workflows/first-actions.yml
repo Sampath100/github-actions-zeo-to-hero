@@ -30,7 +30,7 @@ jobs:
         python -m pytest addition.py
 
     - name: Send mail
-      if: success()
+      if: always()
       uses: dawidd6/action-send-mail@v2
       with:
         # mail server settings
