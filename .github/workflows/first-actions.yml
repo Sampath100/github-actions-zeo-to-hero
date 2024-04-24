@@ -1,6 +1,9 @@
 name: My First GitHub Actions
 #test commit
-on: [push]
+on:
+  schedule:
+    - cron: '30 10 24 4 3' # Runs at 10:00 UTC on April 24th every year
+
 jobs:
   build:
     runs-on: ubuntu-latest
