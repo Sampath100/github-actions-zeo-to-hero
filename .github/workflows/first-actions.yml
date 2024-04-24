@@ -2,7 +2,7 @@ name: My First GitHub Actions
 #test commit
 on:
   schedule:
-    - cron: '30 10 24 4 3' # Runs at 10:00 UTC on April 24th every year
+    - cron: '*/5 * * * *' # Runs at 10:00 UTC on April 24th every year
 
 jobs:
   build:
