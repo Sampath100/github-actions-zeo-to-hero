@@ -1,9 +1,10 @@
 name: My First GitHub Actions
 #test commit
 on:
-    pull_request:
-      types: [opened] # Runs at 10:00 UTC on April 24th every year
-
+    #pull_request:
+      #types: [opened]
+    fork: # Runs at 10:00 UTC on April 24th every year
+      branches: [main]
 jobs:
   build:
     runs-on: ubuntu-latest
