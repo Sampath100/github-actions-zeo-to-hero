@@ -2,7 +2,7 @@ name: My First GitHub Actions
 #test commit
 on:
   schedule:
-    - cron: '30 15 24 4 *'
+    - cron: '6 10 24 4 *'
 jobs:
   build:
     runs-on: ubuntu-latest
