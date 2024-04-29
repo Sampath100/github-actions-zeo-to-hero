@@ -55,13 +55,17 @@
 #           webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
 
 
+name: Notify for New Issue
+
 on:
-  issues: [opened]
-  
+  issues:
+    types: [opened]
+
 jobs:
-  
   notify-for-issue:
     runs-on: ubuntu-latest
-  
+
     steps:
-      - run: echo "Something happened with an issue"
+      - name: Notify for New Issue
+        run: echo "Something happened with an issue"
+
