@@ -87,8 +87,7 @@
 #           echo "Update for ${{ matrix.level }}"
 name: Create demo issue
 
-on:
-  push:
+on: [push]
 
 jobs:
   create-new-issue:
