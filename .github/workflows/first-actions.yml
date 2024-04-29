@@ -68,6 +68,23 @@
 #       - name: Notify for New Issue
 #         run: echo "Something happened without an issue"
 
+# name: Create demo issue
+
+# on:
+#   push:
+
+# jobs:
+#   create-new-issue:
+#     strategy:
+#       matrix:
+#         prod: [prod1, prod2]
+#         level: [dev, stage, prod]
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Create issue
+#         run: |
+#           echo "Creating issue for ${{ matrix.prod }} environment"
+#           echo "Update for ${{ matrix.level }}"
 name: Create demo issue
 
 on:
@@ -81,7 +98,15 @@ jobs:
         level: [dev, stage, prod]
     runs-on: ubuntu-latest
     steps:
-      - name: Create issue
-        run: |
-          echo "Creating issue for ${{ matrix.prod }} environment"
-          echo "Update for ${{ matrix.level }}"
+      - name: Create Issue
+        uses: rndrepos/common/.github/workflows/create-issue.yml@v1
+        with:
+          title: "${{ matrix.prod }} issue"
+          body: "Update for ${{ matrix.level }}"
+
+  report-issue-number:
+    runs-on: ubuntu-latest
+    needs: create-new-issue
+    steps:
+      - name: Report Issue Number
+        run: echo ${{ needs.create-new-issue.outputs.issue-num }}
