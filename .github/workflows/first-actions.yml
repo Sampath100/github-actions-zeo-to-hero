@@ -59,7 +59,7 @@ name: Notify for New Issue
 
 on:
   issues:
-    types: [opened , closed]
+    types: [closed]
 
 jobs:
   notify-for-issue:
@@ -67,5 +67,5 @@ jobs:
 
     steps:
       - name: Notify for New Issue
-        run: echo "Something happened with an issue"
+        run: echo "Something happened without an issue"
 
