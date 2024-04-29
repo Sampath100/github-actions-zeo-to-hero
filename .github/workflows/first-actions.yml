@@ -55,16 +55,33 @@
 #           webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
 
 
-name: Notify for New Issue
+# name: Notify for New Issue
+# on:
+#   issues:
+#     types: [opened]
+
+# jobs:
+#   notify-for-issue:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Notify for New Issue
+#         run: echo "Something happened without an issue"
+
+name: Create demo issue
+
 on:
-  issues:
-    types: [opened]
+  push:
 
 jobs:
-  notify-for-issue:
+  create-new-issue:
+    strategy:
+      matrix:
+        prod: [prod1, prod2]
+        level: [dev, stage, prod]
     runs-on: ubuntu-latest
-
     steps:
-      - name: Notify for New Issue
-        run: echo "Something happened without an issue"
-
+      - name: Create issue
+        run: |
+          echo "Creating issue for ${{ matrix.prod }} environment"
+          echo "Update for ${{ matrix.level }}"
