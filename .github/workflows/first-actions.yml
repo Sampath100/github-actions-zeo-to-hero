@@ -110,4 +110,3 @@ jobs:
     steps:
       - name: Report Issue Number
         run: echo ${{ needs.create-new-issue.outputs.issue-num }}
-
