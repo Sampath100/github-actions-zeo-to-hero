@@ -59,7 +59,7 @@ name: Notify for New Issue
 
 on:
   issues:
-    types: [opened]
+    types: [opened , closed]
 
 jobs:
   notify-for-issue:
