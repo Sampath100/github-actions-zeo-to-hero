@@ -87,19 +87,19 @@
 #           echo "Update for ${{ matrix.level }}"
 name: Create demo issue
 
-on: [push]
+on:
+  push:
 
 jobs:
   create-new-issue:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         prod: [prod1, prod2]
         level: [dev, stage, prod]
-    runs-on: ubuntu-latest
     steps:
       - name: Create Issue
         uses: rndrepos/common/.github/workflows/create-issue.yml@v1
-        secrets: inherit
         with:
           title: "${{ matrix.prod }} issue"
           body: "Update for ${{ matrix.level }}"
@@ -110,3 +110,4 @@ jobs:
     steps:
       - name: Report Issue Number
         run: echo ${{ needs.create-new-issue.outputs.issue-num }}
+
