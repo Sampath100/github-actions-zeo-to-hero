@@ -1,42 +1,42 @@
-name: My First GitHub Actions
+# name: My First GitHub Actions
 #test commit
 #on:
   #schedule:
     #- cron: '*/5 * * * *' # Runs at 10:00 UTC on April 24th every year
-on: [push]
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# on: [push]
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        python-version: [3.8, 3.9]
+#     strategy:
+#       matrix:
+#         python-version: [3.8, 3.9]
 
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
+#     steps:
+#     - uses: actions/checkout@v3
+#     - name: Set up Python
+#       uses: actions/setup-python@v2
+#       with:
+#         python-version: ${{ matrix.python-version }}
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install pytest
+#     - name: Install dependencies
+#       run: |
+#         python -m pip install --upgrade pip
+#         pip install pytest
 
-    - name: Run tests
-      run: |
-        cd src
-        python -m pytest addition.py
-    - name: Turnstyle
-      id: turnstyle
-      uses: softprops/turnstyle@v1
-      with:
-        continue-after-seconds: 60
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Deploy
-      run: sleep 60
+#     - name: Run tests
+#       run: |
+#         cd src
+#         python -m pytest addition.py
+#     - name: Turnstyle
+#       id: turnstyle
+#       uses: softprops/turnstyle@v1
+#       with:
+#         continue-after-seconds: 60
+#       env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#     - name: Deploy
+#       run: sleep 60
 
 # name: MS Teams Github Actions integration
 
@@ -53,4 +53,15 @@ jobs:
 #         with:
 #           github-token: ${{ github.token }}
 #           webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-    
+
+
+on:
+  issues: [opened]
+  
+jobs:
+  
+  notify-for-issue:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - run: echo "Something happened with an issue"
