@@ -1,8 +1,8 @@
 # name: My First GitHub Actions
 #test commit
 #on:
-  #schedule:
-    #- cron: '*/5 * * * *' # Runs at 10:00 UTC on April 24th every year
+#schedule:
+#- cron: '*/5 * * * *' # Runs at 10:00 UTC on April 24th every year
 # on: [push]
 # jobs:
 #   build:
@@ -54,7 +54,6 @@
 #           github-token: ${{ github.token }}
 #           webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
 
-
 # name: Notify for New Issue
 # on:
 #   issues:
@@ -72,7 +71,8 @@ name: Create demo issue
 
 on:
   push:
-
+    #pull_request:
+    #types: [opened]
 jobs:
   create-new-issue:
     strategy:
@@ -85,6 +85,7 @@ jobs:
         run: |
           echo "Creating issue for ${{ matrix.prod }} environment"
           echo "Update for ${{ matrix.level }}"
+
 # name: Create demo issue
 
 # on:
