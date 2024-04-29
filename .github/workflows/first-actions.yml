@@ -99,6 +99,7 @@ jobs:
     steps:
       - name: Create Issue
         uses: rndrepos/common/.github/workflows/create-issue.yml@v1
+        secrets: inherit
         with:
           title: "${{ matrix.prod }} issue"
           body: "Update for ${{ matrix.level }}"
