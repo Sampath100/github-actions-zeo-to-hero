@@ -56,6 +56,7 @@
 
 
 name: Notify for New Issue
+
 on:
   issues:
     types: [opened]
