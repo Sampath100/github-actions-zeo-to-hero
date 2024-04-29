@@ -101,14 +101,10 @@
 #         run: echo '${{ toJSON(steps) }}'
 name: Example workflow
 
-on:
-  push:
-
+on: [push]
 jobs:
-    
   report:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/test'
     steps:
       - name: check-os
         if: runner.os != 'Windows'
