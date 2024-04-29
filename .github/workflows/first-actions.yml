@@ -68,23 +68,23 @@
 #       - name: Notify for New Issue
 #         run: echo "Something happened without an issue"
 
-# name: Create demo issue
+name: Create demo issue
 
-# on:
-#   push:
+on:
+  push:
 
-# jobs:
-#   create-new-issue:
-#     strategy:
-#       matrix:
-#         prod: [prod1, prod2]
-#         level: [dev, stage, prod]
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Create issue
-#         run: |
-#           echo "Creating issue for ${{ matrix.prod }} environment"
-#           echo "Update for ${{ matrix.level }}"
+jobs:
+  create-new-issue:
+    strategy:
+      matrix:
+        prod: [prod1, prod2]
+        level: [dev, stage, prod]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create issue
+        run: |
+          echo "Creating issue for ${{ matrix.prod }} environment"
+          echo "Update for ${{ matrix.level }}"
 # name: Create demo issue
 
 # on:
@@ -99,13 +99,13 @@
 #         run: echo '${{ toJSON(github) }}'
 #       - name: Dump steps context
 #         run: echo '${{ toJSON(steps) }}'
-name: Example workflow
+# name: Example workflow
 
-on: [push]
-jobs:
-  report:
-    runs-on: ubuntu-latest
-    steps:
-      - name: check-os
-        if: runner.os != 'Windows'
-        run: echo "The runner's operating system is $RUNNER_OS."
+# on: [push]
+# jobs:
+#   report:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: check-os
+#         if: runner.os != 'Windows'
+#         run: echo "The runner's operating system is $RUNNER_OS."
