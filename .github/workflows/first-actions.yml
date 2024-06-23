@@ -21,7 +21,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         cd src
-        python addition.py
+        pip install pytest
 
     - name: Run tests
       run: |
