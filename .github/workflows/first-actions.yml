@@ -1,17 +1,23 @@
-name: My First GitHub Actions
+name: My First job is this
 
 on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     strategy:
       matrix:
         python-version: [3.8, 3.9]
 
     steps:
-    - uses: actions/checkout@v3
+
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        persist-credentials: false  # Ensures no credentials are persisted to the disk
+        clean: true  # Cleans up the repository before checking out
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
