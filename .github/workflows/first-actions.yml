@@ -16,7 +16,7 @@ jobs:
         Remove-Item -Recurse -Force ${{ github.workspace }}/*
 
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
       with:
         persist-credentials: false  # Ensures no credentials are persisted to the disk
         clean: true  # Cleans up the repository before checking out
