@@ -13,7 +13,7 @@ jobs:
     steps:
     - name: Clean up workspace
       run: |
-        rm -rf ${{ github.workspace }}/*
+        Remove-Item -Recurse -Force ${{ github.workspace }}/*
 
     - name: Checkout repository
       uses: actions/checkout@v3
